@@ -48,3 +48,23 @@ export async function readUserFromEmail(email) {
         console.error(error);
     }
 }
+
+// agregar datos de usuario ademas de los datos de la cuenta manteniendo datos anteriormente guardados
+
+export async function updateProfileUser(codigoUsuario, companyName,rucCompany,contactName,contactPhone,companyPhone) {
+    try {
+        const user = await readUser(codigoUsuario);
+        await set(ref(db, 'users/' + codigoUsuario), {
+            codigoUsuario: codigoUsuario,
+            email: user.email,
+            companyName: companyName,
+            rucCompany: rucCompany,
+            contactName: contactName,
+            contactPhone: contactPhone,
+            companyPhone: companyPhone,
+        });
+        console.log("User data updated successfully.");
+    } catch (error) {
+        console.error("Error updating user data: ", error);
+    }
+}

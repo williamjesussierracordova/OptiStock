@@ -2,12 +2,10 @@
 
 import {
   BadgeCheck,
-  Bell,
   BookOpen,
   Bot,
   ChevronRight,
   ChevronsUpDown,
-  CreditCard,
   Frame,
   LifeBuoy,
   LogOut,
@@ -15,8 +13,8 @@ import {
   PieChart,
   Send,
   Settings2,
-  Sparkles,
   SquareTerminal,
+  CircleUserRound
 } from "lucide-react"
 import { ReactNode } from "react"
 import {
@@ -57,6 +55,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { useSessionStore } from "@/store/sessionStore"
+import { useNavigate } from "react-router-dom"
 const data = {
   user: {
     name: "shadcn",
@@ -185,6 +185,11 @@ interface SidebarProps {
 }
 
 export default function Sidebar1({ children }: SidebarProps) {
+  const {session,logout} = useSessionStore()
+  const navigate = useNavigate()
+  const handleLogout = async () => {
+    await logout(navigate);
+  };
   return (
     <SidebarProvider defaultOpen={false}>
       <Sidebar variant="inset" collapsible="offcanvas"  >
@@ -280,14 +285,16 @@ export default function Sidebar1({ children }: SidebarProps) {
                         src={data.user.avatar}
                         alt={data.user.name}
                       />
-                      <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                      <AvatarFallback className="rounded-lg">
+                        {session.displayName.charAt(0) + session.displayName.charAt(1)}
+                      </AvatarFallback>
                     </Avatar>
                     <div className="grid flex-1 text-left text-sm leading-tight">
                       <span className="truncate font-semibold">
-                        {data.user.name}
+                        {session.displayName}
                       </span>
                       <span className="truncate text-xs">
-                        {data.user.email}
+                        {session.email}
                       </span>
                     </div>
                     <ChevronsUpDown className="ml-auto size-4" />
@@ -304,49 +311,38 @@ export default function Sidebar1({ children }: SidebarProps) {
                       <Avatar className="h-8 w-8 rounded-lg">
                         <AvatarImage
                           src={data.user.avatar}
-                          alt={data.user.name}
+                          alt={session.displayName}
                         />
                         <AvatarFallback className="rounded-lg">
-                          CN
+                          {session.displayName.charAt(0) + session.displayName.charAt(1)}
                         </AvatarFallback>
                       </Avatar>
                       <div className="grid flex-1 text-left text-sm leading-tight">
                         <span className="truncate font-semibold">
-                          {data.user.name}
+                          {session.displayName}
                         </span>
                         <span className="truncate text-xs">
-                          {data.user.email}
+                          {session.email}
                         </span>
                       </div>
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
+                    <a href="/profile" className="text-black">
                     <DropdownMenuItem>
-                      <Sparkles />
-                      Upgrade to Pro
+                      <CircleUserRound/>
+                      Profile
                     </DropdownMenuItem>
+                    </a>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                      <BadgeCheck />
-                      Account
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <CreditCard />
-                      Billing
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Bell />
-                      Notifications
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                  <DropdownMenuSeparator />
+                  <a onClick={handleLogout} className="text-black">
                   <DropdownMenuItem>
                     <LogOut />
                     Log out
                   </DropdownMenuItem>
+                  </a>
                 </DropdownMenuContent>
               </DropdownMenu>
             </SidebarMenuItem>

@@ -77,7 +77,8 @@ export const ProfileComponent: React.FC = () => {
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle>Account Profile</CardTitle>
+        <CardTitle>Perfil de la cuenta
+        </CardTitle>
       </CardHeader>
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4">

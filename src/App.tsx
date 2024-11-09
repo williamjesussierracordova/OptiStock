@@ -8,6 +8,9 @@ import Prueba from "./pages/prueba"
 import { useSessionStore } from "./store/sessionStore"
 import { Navigate } from "react-router-dom"
 import { ProtectedRoute } from "./store/protectedRoute"
+import { RegisterProduct } from "./pages/products/registerProduct"
+import { ListProducts } from "./pages/products/listProducts"
+import { EditProducts } from "./pages/products/editProducts"
 function App() {
   const { initialized } = useSessionStore();
   // if (!initialized) {
@@ -35,6 +38,21 @@ function App() {
         <Route path="/profile" element={
           <ProtectedRoute>
           <Profile />
+          </ProtectedRoute>
+        }/>
+        <Route path="/registrarProducto" element={
+          <ProtectedRoute>
+          <RegisterProduct />
+          </ProtectedRoute>
+        }/>
+        <Route path="/listarProductos" element={
+          <ProtectedRoute>
+          <ListProducts />
+          </ProtectedRoute>
+        }/>
+        <Route path="/editProducts" element={
+          <ProtectedRoute>
+          <EditProducts />
           </ProtectedRoute>
         }/>
         <Route path="*" element={<Navigate to="/" replace />} />

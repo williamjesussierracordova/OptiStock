@@ -75,6 +75,32 @@ export async function deleteSale(companie,codesale){
     }
 }
 
+// funcion para actualizar una venta
+
+export async function updateSale(companie,codesale,informationProduct,total,namebuyer,dnibuyer){
+    try {
+        // recorremos informationProduct para actualizar el stock de cada producto
+        const sale = await readSale(companie,codesale);
+        sale.informationSale.forEach(async (product) => {
+            await updateStockAdd(companie,product.codeProduct,product.quantity);
+        });
+        informationProduct.forEach(async (product) => {
+            await updateStockRest(companie,product.codeProduct,product.quantity);
+        });
+        await set(ref(db,'users/'+companie+'/sales/'+codesale),{
+            codesale: codesale,
+            date: sale.date,
+            informationSale: informationProduct,
+            totalSale: total,
+            namebuyer: namebuyer,
+            dnibuyer: dnibuyer
+        });
+        console.log("Sale updated successfully.");
+    } catch (error) {
+        console.error("Error updating sale: ", error);
+    }
+}
+
 // await writeSale('1',[
 //     {
 //     'codeProduct':'21d9e9ad-c967-46f3-b404-7afefb4057c3',
@@ -88,6 +114,6 @@ export async function deleteSale(companie,codesale){
 //     }
 // ],500,'Juan Perez','12345678')
 
-await deleteSale('1','78966017-ac09-463f-92e2-8e1cd8b291db')
+// await deleteSale('1','78966017-ac09-463f-92e2-8e1cd8b291db')
 
 // console.log(await readSale('1','78966017-ac09-463f-92e2-8e1cd8b291db'))

@@ -1,5 +1,5 @@
 import { set, ref ,get} from "firebase/database";
-import { getFirebaseDb } from "../firebase/firebase.js";
+import { getFirebaseDb } from "./firebase.js";
 import { v4 as uuidv4 } from 'uuid';
 const db = getFirebaseDb();
 

@@ -1,7 +1,7 @@
 
 
 import {
-  BadgeCheck,
+  ShoppingBasket,
   BookOpen,
   Bot,
   ChevronRight,
@@ -65,22 +65,21 @@ const data = {
   },
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
+      title: "Productos",
+      icon: ShoppingBasket,
       isActive: false,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Registrar",
+          url: "/registrarProducto",
         },
         {
-          title: "Starred",
-          url: "#",
+          title: "Listar",
+          url: "/listarProductos",
         },
         {
-          title: "Settings",
-          url: "#",
+          title: "Editar",
+          url: "/editProducts",
         },
       ],
     },
@@ -197,7 +196,7 @@ export default function Sidebar1({ children }: SidebarProps) {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" asChild>
-                <a>
+                <a href="/home" >
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg ">
                     <img src="/chartLineBlack.svg" alt="Logo" className="h-8" />
                   </div>
@@ -211,7 +210,7 @@ export default function Sidebar1({ children }: SidebarProps) {
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Platform</SidebarGroupLabel>
+            <SidebarGroupLabel>Menu</SidebarGroupLabel>
             <SidebarMenu>
               {data.navMain.map((item) => (
                 <Collapsible

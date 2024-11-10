@@ -9,8 +9,9 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useEffect } from 'react'
 import { useSessionStore } from '@/store/sessionStore'
-import { readAllProducts } from "../../firebase/productsController"
-import { updateProduct } from "../../firebase/productsController"
+import { readAllProducts } from "../../../firebase/productsController"
+import { updateProduct } from "../../../firebase/productsController"
+import {deleteProduct} from "../../../firebase/productsController"
 import { BadgeCheck, Ban } from 'lucide-react'
 import { AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { IoMdClose } from 'react-icons/io'
@@ -43,7 +44,7 @@ export default function Component() {
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
     const [valid, setValid] = useState(false)
     const [error, setError] = useState(false)
-    const message = valid ? 'Producto actualizado con éxito' : 'Error al actualizar el producto'
+    const message = valid ? 'Producto eliminado con éxito' : 'Error al eliminar el producto'
 
     const filteredProducts = products.filter(product =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -80,7 +81,7 @@ export default function Component() {
         e.preventDefault()
         if (selectedProduct) {
             try {
-                await updateProduct(session.uid,selectedProduct.codeProduct,selectedProduct.name,selectedProduct.price,selectedProduct.cost,selectedProduct.demand,selectedProduct.leadtime,selectedProduct.holdingCost,selectedProduct.orderCost,selectedProduct.stock)
+                deleteProduct(session.uid,selectedProduct.codeProduct)
                 // Here you would typically send the updated product data to your backend
                 console.log('Updated product:', selectedProduct)
                 setValid(true)
@@ -143,7 +144,7 @@ export default function Component() {
             <div className="container mx-auto px-4 py-8">
                 <Card className="w-full max-w-2xl mx-auto">
                     <CardHeader>
-                        <CardTitle>Editar Productos</CardTitle>
+                        <CardTitle>Eliminar Producto</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
@@ -193,6 +194,7 @@ export default function Component() {
                                                 value={selectedProduct.name}
                                                 onChange={handleInputChange}
                                                 required
+                                                disabled
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -206,6 +208,7 @@ export default function Component() {
                                                 required
                                                 min="0"
                                                 step="0.01"
+                                                disabled
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -219,6 +222,7 @@ export default function Component() {
                                                 required
                                                 min="0"
                                                 step="0.01"
+                                                disabled
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -231,6 +235,7 @@ export default function Component() {
                                                 onChange={handleInputChange}
                                                 required
                                                 min="0"
+                                                disabled
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -243,6 +248,7 @@ export default function Component() {
                                                 onChange={handleInputChange}
                                                 required
                                                 min="0"
+                                                disabled
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -256,6 +262,7 @@ export default function Component() {
                                                 required
                                                 min="0"
                                                 step="0.01"
+                                                disabled
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -269,6 +276,7 @@ export default function Component() {
                                                 required
                                                 min="0"
                                                 step="0.01"
+                                                disabled
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -281,6 +289,7 @@ export default function Component() {
                                                 onChange={handleInputChange}
                                                 required
                                                 min="0"
+                                                disabled
                                             />
                                         </div>
                                     </div>
@@ -353,7 +362,7 @@ export default function Component() {
                                 </div>
                                 <CardFooter className="px-0 pt-6">
                                     <Button type="submit" className="ml-auto">
-                                        Guardar Cambios
+                                        Eliminar Producto
                                     </Button>
                                 </CardFooter>
                             </form>
@@ -368,7 +377,7 @@ export default function Component() {
                             <BadgeCheck className="h-5 w-5 mr-2" />
                             <div>
                                 <AlertTitle className="font-bold">
-                                    Producto actualizado
+                                    Producto Eliminado
                                 </AlertTitle>
                                 <AlertDescription className="text-pretty">
                                     {message}
@@ -391,7 +400,7 @@ export default function Component() {
                             <Ban className="h-5 w-5 mr-2" />
                             <div>
                                 <AlertTitle className="font-bold">
-                                    Producto no actualizado
+                                    Producto no Eliminado
                                 </AlertTitle>
                                 <AlertDescription className="text-pretty">
                                     {message}

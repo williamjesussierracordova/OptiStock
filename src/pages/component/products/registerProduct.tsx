@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import {writeProduct} from '../../firebase/productsController'
+import {writeProduct} from '../../../firebase/productsController'
 import { useSessionStore } from '@/store/sessionStore'
 import { BadgeCheck, Ban } from 'lucide-react'
 import { AlertDescription, AlertTitle } from '@/components/ui/alert'

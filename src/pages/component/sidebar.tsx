@@ -17,7 +17,8 @@ import {
   CircleUserRound,
   BookOpenText,
   BookUser,
-  Book
+  Book,
+  ShoppingCart
 } from "lucide-react"
 import { ReactNode } from "react"
 import {
@@ -91,22 +92,21 @@ const data = {
       ],
     },
     {
-      title: "Models",
-      url: "#",
-      icon: Bot,
+      title: "Ventas",
+      icon: ShoppingCart,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Registrar",
+          url: "/registrarVenta",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Eliminar",
+          url: "/eliminarVenta",
         },
         {
-          title: "Quantum",
-          url: "#",
-        },
+          title: "Listar",
+          url: "/listaVentas",
+        }
       ],
     },
     {

@@ -1,8 +1,8 @@
 import { set, ref ,get} from "firebase/database";
 import { getFirebaseDb } from "../firebase/firebase.js";
 import { v4 as uuidv4 } from 'uuid';
-import { updateStockRest } from "./products.js";
-import { updateStockAdd } from "./products.js";
+import { updateStockRest } from "../firebase/productsController.js";
+import { updateStockAdd } from "../firebase/productsController.js";
 const db = getFirebaseDb();
 
 // crud para ventas
@@ -105,12 +105,12 @@ export async function updateSale(companie,codesale,informationProduct,total,name
 //     {
 //     'codeProduct':'21d9e9ad-c967-46f3-b404-7afefb4057c3',
 //     'quantity':20,
-//     'total':120.30
+//     'subtotal':120.30
 //     },
 //     {
 //     'codeProduct':'89f51a0e-4a5a-41b2-94ad-ac801eb690db',
 //     'quantity':50,
-//     'total':120.30
+//     'subtotal':120.30
 //     }
 // ],500,'Juan Perez','12345678')
 

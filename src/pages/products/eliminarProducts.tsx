@@ -2,7 +2,7 @@
 import Sidebar1 from "../component/sidebar";
 import Footer from "../parts/footer";
 import Header from "../parts/header";
-import DeleteProducto from "../component/deleteProducts"
+import DeleteProducto from "../component/products/deleteProducts"
 
 export const EliminarProducto = () => {
     return (

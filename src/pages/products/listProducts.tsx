@@ -2,7 +2,7 @@
 import Sidebar1 from "../component/sidebar";
 import Footer from "../parts/footer";
 import Header from "../parts/header";
-import ListProductsComponent from "../component/listProducts";
+import ListProductsComponent from "../component/products/listProducts";
 
 export const ListProducts = () => {
     return (

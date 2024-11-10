@@ -1,14 +1,14 @@
 import Sidebar1 from "../component/sidebar";
 import Footer from "../parts/footer";
 import Header from "../parts/header";
-import RegisterProductComponent from "../component/products/registerProduct";
+import RegisterSaleComponent from "../component/sales/registerSale"
 
-export const RegisterProduct = () => {
+export const RegisterSale = () => {
     return (
         <div>
             <Header/>
             <Sidebar1>
-                <RegisterProductComponent/>
+                <RegisterSaleComponent/>
             </Sidebar1>
             <Footer/>
         </div>

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import {readAllProducts} from "../../firebase/productsController"
+import {readAllProducts} from "../../../firebase/productsController"
 import { useSessionStore } from '@/store/sessionStore'
 interface Product {
   codeProduct: string

@@ -101,16 +101,16 @@ export default function Component() {
               <ScrollArea className="h-[300px]">
                 <div className="space-y-2">
                   <p><strong>Codigo:</strong> {product.codeProduct}</p>
-                  <p><strong>Precio:</strong> ${product.price.toFixed(2)}</p>
-                  <p><strong>Costo:</strong> ${product.cost.toFixed(2)}</p>
+                  <p><strong>Precio:</strong> S/.{product.price.toFixed(2)}</p>
+                  <p><strong>Costo:</strong> S/.{product.cost.toFixed(2)}</p>
                   <p><strong>Demanda Anual:</strong> {product.demand}</p>
                   <p><strong>Tiempo de espera:</strong> {product.leadtime}</p>
-                  <p><strong>Costo de mantenimiento:</strong> ${product.holdingCost.toFixed(2)}</p>
-                  <p><strong>Costo de orden:</strong> ${product.orderCost.toFixed(2)}</p>
+                  <p><strong>Costo de mantenimiento:</strong> S/.{product.holdingCost.toFixed(2)}</p>
+                  <p><strong>Costo de orden:</strong> S/.{product.orderCost.toFixed(2)}</p>
                   <p><strong>Stock:</strong> {product.stock}</p>
                   <p><strong>EOQ:</strong> {product.eoq.economicOrderQuantity}</p>
                   <p><strong># Ordenes:</strong> {product.eoq.numOrders}</p>
-                  <p><strong>Costo total:</strong> ${product.eoq.totalCost.toFixed(2)}</p>
+                  <p><strong>Costo total:</strong> S/.{product.eoq.totalCost.toFixed(2)}</p>
                   <p><strong>Punto de reorden:</strong> {product.eoq.reorderPoint}</p>
                 </div>
               </ScrollArea>
@@ -147,16 +147,16 @@ export default function Component() {
                     <TableRow key={product.codeProduct}>
                       <TableCell>{product.codeProduct}</TableCell>
                       <TableCell>{product.name}</TableCell>
-                      <TableCell>${product.price.toFixed(2)}</TableCell>
-                      <TableCell>${product.cost.toFixed(2)}</TableCell>
+                      <TableCell>S/.{product.price.toFixed(2)}</TableCell>
+                      <TableCell>S/.{product.cost.toFixed(2)}</TableCell>
                       <TableCell>{product.demand}</TableCell>
                       <TableCell>{product.leadtime}</TableCell>
-                      <TableCell>${product.holdingCost.toFixed(2)}</TableCell>
-                      <TableCell>${product.orderCost.toFixed(2)}</TableCell>
+                      <TableCell>S/.{product.holdingCost.toFixed(2)}</TableCell>
+                      <TableCell>S/.{product.orderCost.toFixed(2)}</TableCell>
                       <TableCell>{product.stock}</TableCell>
                       <TableCell>{product.eoq.economicOrderQuantity}</TableCell>
                       <TableCell>{product.eoq.numOrders}</TableCell>
-                      <TableCell>${product.eoq.totalCost.toFixed(2)}</TableCell>
+                      <TableCell>S/.{product.eoq.totalCost.toFixed(2)}</TableCell>
                       <TableCell>{product.eoq.reorderPoint}</TableCell>
                     </TableRow>
                   ))}

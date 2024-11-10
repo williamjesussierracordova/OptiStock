@@ -11,6 +11,7 @@ import { ProtectedRoute } from "./store/protectedRoute"
 import { RegisterProduct } from "./pages/products/registerProduct"
 import { ListProducts } from "./pages/products/listProducts"
 import { EditProducts } from "./pages/products/editProducts"
+import { EliminarProducto } from "./pages/products/eliminarProducts"
 function App() {
   const { initialized } = useSessionStore();
   // if (!initialized) {
@@ -53,6 +54,11 @@ function App() {
         <Route path="/editProducts" element={
           <ProtectedRoute>
           <EditProducts />
+          </ProtectedRoute>
+        }/>
+        <Route path="/eliminarProducto" element={
+          <ProtectedRoute>
+          <EliminarProducto />
           </ProtectedRoute>
         }/>
         <Route path="*" element={<Navigate to="/" replace />} />

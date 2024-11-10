@@ -14,7 +14,10 @@ import {
   Send,
   Settings2,
   SquareTerminal,
-  CircleUserRound
+  CircleUserRound,
+  BookOpenText,
+  BookUser,
+  Book
 } from "lucide-react"
 import { ReactNode } from "react"
 import {
@@ -74,13 +77,17 @@ const data = {
           url: "/registrarProducto",
         },
         {
-          title: "Listar",
-          url: "/listarProductos",
-        },
-        {
           title: "Editar",
           url: "/editProducts",
         },
+        {
+          title: "Eliminar",
+          url: "/eliminarProducto",
+        },
+        {
+          title: "Listar",
+          url: "/listarProductos",
+        }
       ],
     },
     {
@@ -151,14 +158,14 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Support",
+      title: "Documentación",
       url: "#",
-      icon: LifeBuoy,
+      icon: BookOpenText,
     },
     {
-      title: "Feedback",
+      title: "Contacto",
       url: "#",
-      icon: Send,
+      icon: BookUser,
     },
   ],
   projects: [

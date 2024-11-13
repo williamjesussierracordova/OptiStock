@@ -173,7 +173,7 @@ export default function RegisterProductComponent() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="orderCost">
-                Costo de Ordenar
+              Costo por orden de lote
               </Label>
               <Input
                 id="orderCost"

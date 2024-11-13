@@ -153,7 +153,7 @@ export default function Component() {
                   <Label htmlFor="product-select">Seleccionar producto</Label>
                   <Select onValueChange={(value) => setSelectedProduct(products.find(p => p.codeProduct === value) || null)}>
                     <SelectTrigger id="product-select">
-                      <SelectValue placeholder="Select a product" />
+                      <SelectValue placeholder="Seleccionar un producto" />
                     </SelectTrigger>
                     <SelectContent>
                       {products.map((product) => (

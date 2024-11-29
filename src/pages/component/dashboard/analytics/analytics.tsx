@@ -43,7 +43,7 @@ function InventoryOverview({ totalProducts }: { totalProducts: number }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Total Products</CardTitle>
+        <CardTitle>Total de productos</CardTitle>
       </CardHeader>
       <CardContent>
         <p className="text-2xl font-bold">{totalProducts}</p>
@@ -56,7 +56,8 @@ function TopSellingProducts({ products }: { products: Product[] }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Top Selling Products</CardTitle>
+        {/* FIXME */}
+        <CardTitle>Productos más vendidos</CardTitle>
       </CardHeader>
       <CardContent>
         <ul className="space-y-2">
@@ -76,7 +77,8 @@ function LowStockProducts({ products }: { products: Product[] }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Low Stock Products</CardTitle>
+        {/* FIXME */}
+        <CardTitle>Productos con bajo stock</CardTitle>
       </CardHeader>
       <CardContent>
         <ul className="space-y-2">
@@ -104,19 +106,20 @@ function InventoryStats({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Inventory Statistics</CardTitle>
+        <CardTitle>Estadísticas de inventario</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex justify-between">
-          <span>Average Cost:</span>
+          <span>Costo promedio:</span>
           <span className="font-medium">{averageCost}</span>
         </div>
         <div className="flex justify-between">
-          <span>Total Value:</span>
+          <span>Valor total:</span>
           <span className="font-medium">{totalValue}</span>
         </div>
         <div className="flex justify-between">
-          <span>Average Lead Time:</span>
+          {/* TODO: Entrega en días? Semanas? Cuál es la unidad? */}
+          <span>Plazo de entrega medio:</span>
           <span className="font-medium">{averageLeadTime}</span>
         </div>
       </CardContent>

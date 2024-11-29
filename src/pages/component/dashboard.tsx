@@ -147,7 +147,7 @@ const SalesChart: React.FC<{
 }> = ({ data }) => (
   <Card className="col-span-4">
     <CardHeader>
-      <CardTitle>Overview</CardTitle>
+      <CardTitle>Recuento de ganancias por día</CardTitle>
     </CardHeader>
     <CardContent className="pl-2">
       <ResponsiveContainer height={350}>
@@ -237,7 +237,14 @@ export const Dashboard: React.FC = () => {
   }, [session?.uid]);
 
   if (!salesData || !salesDataByDate) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="flex flex-col items-center space-y-4">
+          <Users className="h-16 w-16 text-muted-foreground" />
+          <p className="text-lg font-medium text-muted-foreground">Datos no encontrados ¡Registra tu primera venta!</p>
+        </div>
+      </div>
+    );
   }
   const chartData = [
     { day: "23/11", total: 2400 },
@@ -258,10 +265,10 @@ export const Dashboard: React.FC = () => {
         <Tabs defaultValue="overview" className="space-y-3">
           <TabsList className="grid w-full grid-cols-1  lg:grid-cols-3 ">
             <TabsTrigger value="overview" className="bg-blue-900 text-white border-black hover:bg-white hover:text-black">
-              Overview
+              Vista general
             </TabsTrigger>
             <TabsTrigger value="analytics" className="bg-blue-900 text-white border-black hover:bg-white hover:text-black">
-              Analytics
+              Análisis de productos
             </TabsTrigger>
             <TabsTrigger value="EOQ" className="bg-blue-900 text-white border-black hover:bg-white hover:text-black">
               EOQ

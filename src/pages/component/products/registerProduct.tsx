@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import {writeProduct} from '../../../firebase/productsController'
 import { useSessionStore } from '@/store/sessionStore'
-import { BadgeCheck, Ban } from 'lucide-react'
+import { BadgeCheck, Ban, InfoIcon } from 'lucide-react'
 import { AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { IoMdClose } from 'react-icons/io'
 
@@ -95,7 +95,7 @@ export default function RegisterProductComponent() {
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Nombre</Label>
+              <Label htmlFor="name">Nombre *</Label>
               <Input
                 id="name"
                 name="name"
@@ -105,7 +105,7 @@ export default function RegisterProductComponent() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="price">Precio</Label>
+              <Label htmlFor="price">Precio *</Label>
               <Input
                 id="price"
                 name="price"
@@ -118,7 +118,7 @@ export default function RegisterProductComponent() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="cost">Costo</Label>
+              <Label htmlFor="cost">Costo *</Label>
               <Input
                 id="cost"
                 name="cost"
@@ -131,7 +131,12 @@ export default function RegisterProductComponent() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="demand">Demanda Anual</Label>
+              <Label htmlFor="demand">
+                Demanda Anual *
+                <span className="ml-2 cursor-pointer" title="La cantidad total de unidades de un producto que se espera vender o consumir en un año">
+                  <InfoIcon className="inline h-5 w-5 text-gray-500" />
+                </span>
+              </Label>
               <Input
                 id="demand"
                 name="demand"
@@ -144,7 +149,7 @@ export default function RegisterProductComponent() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="leadtime">
-                Tiempo de Entrega (días)
+                Tiempo de Entrega (días) *
               </Label>
               <Input
                 id="leadtime"
@@ -158,7 +163,10 @@ export default function RegisterProductComponent() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="holdingCost">
-                Costo de Mantenimiento
+                Costo de Mantenimiento *
+                <span className="ml-2 cursor-pointer" title="Costo por mantenimiento del lote">
+                  <InfoIcon className="inline h-5 w-5 text-gray-500" />
+                </span>
               </Label>
               <Input
                 id="holdingCost"
@@ -173,7 +181,7 @@ export default function RegisterProductComponent() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="orderCost">
-              Costo por orden de lote
+              Costo por orden de lote *
               </Label>
               <Input
                 id="orderCost"
@@ -188,7 +196,7 @@ export default function RegisterProductComponent() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="stock">
-                Inventario Inicial
+                Inventario Inicial *
               </Label>
               <Input
                 id="stock"

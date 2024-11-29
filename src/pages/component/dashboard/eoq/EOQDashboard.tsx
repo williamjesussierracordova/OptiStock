@@ -33,7 +33,7 @@ export function EOQDashboard({ data }: EOQDashboardProps) {
           />
           <StatCard
             title="Promedio de Costo Total"
-            value={`s/.${data.totalCostAverage}`}
+            value={`S/. ${data.totalCostAverage}`}
             icon={<DollarSign className="w-6 h-6" />}
             tooltip='Costo promedio total de mantener el inventario y realizar pedidos de reposición de productos.'
           />
@@ -65,7 +65,7 @@ export function EOQDashboard({ data }: EOQDashboardProps) {
           />
           <StatCard
             title="Valor Total del Inventario"
-            value={`s/.${data.totalInventoryValue}`}
+            value={`S/. ${data.totalInventoryValue}`}
             icon={<Warehouse className="w-6 h-6" />}
           />
         </div>

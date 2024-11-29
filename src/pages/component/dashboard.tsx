@@ -237,7 +237,14 @@ export const Dashboard: React.FC = () => {
   }, [session?.uid]);
 
   if (!salesData || !salesDataByDate) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="flex flex-col items-center space-y-4">
+          <Users className="h-16 w-16 text-muted-foreground" />
+          <p className="text-lg font-medium text-muted-foreground">Datos no encontrados ¡Registra tu primera venta!</p>
+        </div>
+      </div>
+    );
   }
   const chartData = [
     { day: "23/11", total: 2400 },

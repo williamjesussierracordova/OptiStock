@@ -147,7 +147,7 @@ const SalesChart: React.FC<{
 }> = ({ data }) => (
   <Card className="col-span-4">
     <CardHeader>
-      <CardTitle>Overview</CardTitle>
+      <CardTitle>Recuento de ganancias por día</CardTitle>
     </CardHeader>
     <CardContent className="pl-2">
       <ResponsiveContainer height={350}>
@@ -249,7 +249,6 @@ export const Dashboard: React.FC = () => {
     { day: "hoy", total: salesDataByDate.today.totalRevenue },
   ];
   return (
-    // TODO: Traducir TODO al español
     <div className="flex min-h-screen flex-col bg-background">
       <div className="flex-1 space-y-4 p-2 lg:px-8 md:px-4">
         <div className="flex items-center justify-between space-y-2">
@@ -259,10 +258,10 @@ export const Dashboard: React.FC = () => {
         <Tabs defaultValue="overview" className="space-y-3">
           <TabsList className="grid w-full grid-cols-1  lg:grid-cols-3 ">
             <TabsTrigger value="overview" className="bg-blue-900 text-white border-black hover:bg-white hover:text-black">
-              Overview
+              Vista general
             </TabsTrigger>
             <TabsTrigger value="analytics" className="bg-blue-900 text-white border-black hover:bg-white hover:text-black">
-              Analytics
+              Análisis de productos
             </TabsTrigger>
             <TabsTrigger value="EOQ" className="bg-blue-900 text-white border-black hover:bg-white hover:text-black">
               EOQ

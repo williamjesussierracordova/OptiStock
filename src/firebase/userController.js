@@ -6,10 +6,10 @@ const db = getFirebaseDb();
 
 export async function writeUser(codigoUsuario,email,displayName) {
     try {
-        await set(ref(db, 'users/' + codigoUsuario), {
+        await set(ref(db, 'users/' + codigoUsuario + '/profile'  ), {
             codigoUsuario: codigoUsuario,
             email: email,
-            displayName: displayName,
+            displayName: email,
         });
         console.log("User data saved successfully.");
     } catch (error) {
@@ -18,7 +18,7 @@ export async function writeUser(codigoUsuario,email,displayName) {
 }
 
 export async function readUser(codigoUsuario) {
-    const userRFC = ref(db, 'users/' + codigoUsuario);
+    const userRFC = ref(db, 'users/' + codigoUsuario + '/profile');
     try {
         const snapshot = await get(userRFC);
         let data = snapshot.val();
@@ -54,17 +54,20 @@ export async function readUserFromEmail(email) {
 export async function updateProfileUser(codigoUsuario, companyName,rucCompany,contactName,contactPhone,companyPhone) {
     try {
         const user = await readUser(codigoUsuario);
-        await set(ref(db, 'users/' + codigoUsuario), {
+        await set(ref(db, 'users/' + codigoUsuario + '/profile'), {
             codigoUsuario: codigoUsuario,
             email: user.email,
-            companyName: companyName,
+            displayname: companyName,
             rucCompany: rucCompany,
             contactName: contactName,
             contactPhone: contactPhone,
             companyPhone: companyPhone,
+
         });
         console.log("User data updated successfully.");
     } catch (error) {
         console.error("Error updating user data: ", error);
     }
 }
+
+console.log(await readUser('jEcZIHprxEfzy3yMa9sAwgpkjlY2'))

@@ -89,7 +89,7 @@ export const SignIn = () => {
                     href="/signUp"
                     className="text-sm text-gray-400 hover:text-white transition-colors "
                 >
-                    Sign Up
+                    Registrar
                 </a>
             </div>
 
@@ -129,7 +129,7 @@ export const SignIn = () => {
                     <div className="max-w-sm w-full space-y-6">
                         <div className="space-y-2 text-center">
                             <h1 className="text-2xl font-semibold tracking-tight">
-                                Sign In
+                                Ingresar
                             </h1>
                             <p className="text-sm text-gray-400">
                                 Ingresar correo electronico y contraseña para ingresar

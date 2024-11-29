@@ -100,6 +100,7 @@ export async function updateSale(companie,codesale,informationProduct,total,name
         console.error("Error updating sale: ", error);
     }
 }
+    
 
 // await writeSale('1',[
 //     {

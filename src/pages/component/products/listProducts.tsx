@@ -108,8 +108,8 @@ export default function Component() {
                   <p><strong>Costo de mantenimiento:</strong> S/.{product.holdingCost.toFixed(2)}</p>
                   <p><strong>Costo de orden:</strong> S/.{product.orderCost.toFixed(2)}</p>
                   <p><strong>Stock:</strong> {product.stock}</p>
-                  <p><strong>EOQ:</strong> {product.eoq.economicOrderQuantity}</p>
-                  <p><strong># Ordenes:</strong> {product.eoq.numOrders}</p>
+                  <p><strong>EOQ:</strong> {product.eoq.economicOrderQuantity.toFixed(2)}</p>
+                  <p><strong># Ordenes:</strong> {product.eoq.numOrders.toFixed(2)}</p>
                   <p><strong>Costo total:</strong> S/.{product.eoq.totalCost.toFixed(2)}</p>
                   <p><strong>Punto de reorden:</strong> {product.eoq.reorderPoint}</p>
                 </div>
@@ -154,8 +154,8 @@ export default function Component() {
                       <TableCell>S/.{product.holdingCost.toFixed(2)}</TableCell>
                       <TableCell>S/.{product.orderCost.toFixed(2)}</TableCell>
                       <TableCell>{product.stock}</TableCell>
-                      <TableCell>{product.eoq.economicOrderQuantity}</TableCell>
-                      <TableCell>{product.eoq.numOrders}</TableCell>
+                      <TableCell>{product.eoq.economicOrderQuantity.toFixed(2)}</TableCell>
+                      <TableCell>{product.eoq.numOrders.toFixed(0)}</TableCell>
                       <TableCell>S/.{product.eoq.totalCost.toFixed(2)}</TableCell>
                       <TableCell>{product.eoq.reorderPoint}</TableCell>
                     </TableRow>

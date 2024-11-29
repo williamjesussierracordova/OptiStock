@@ -37,7 +37,7 @@ export const ProfileComponent: React.FC = () => {
         setUser(userData)
         setProfile({
           email: userData.email,
-          companyName: userData.companyName,
+          companyName: userData.displayname,
           companyId: userData.rucCompany,
           contactName: userData.contactName,
           telephoneNumber: userData.companyPhone,

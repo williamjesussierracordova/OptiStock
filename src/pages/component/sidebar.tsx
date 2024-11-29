@@ -3,22 +3,17 @@
 import {
   ShoppingBasket,
   BookOpen,
-  Bot,
   ChevronRight,
   ChevronsUpDown,
   Frame,
-  LifeBuoy,
   LogOut,
   Map,
   PieChart,
-  Send,
-  Settings2,
-  SquareTerminal,
   CircleUserRound,
   BookOpenText,
   BookUser,
-  Book,
-  ShoppingCart
+  ShoppingCart,
+  House
 } from "lucide-react"
 import { ReactNode } from "react"
 import {
@@ -61,6 +56,9 @@ import {
 } from "@/components/ui/sidebar"
 import { useSessionStore } from "@/store/sessionStore"
 import { useNavigate } from "react-router-dom"
+import { readUser } from "@/firebase/userController"
+import { useState } from "react"
+import React from "react"
 const data = {
   user: {
     name: "shadcn",
@@ -68,6 +66,17 @@ const data = {
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
+    {
+      title: "Inicio",
+      icon: House,
+      url: "/home",
+      items:[
+        {
+          title: "Dashboard",
+          url: "/home",
+        }
+      ]
+    },
     {
       title: "Productos",
       icon: ShoppingBasket,
@@ -132,29 +141,6 @@ const data = {
         },
       ],
     },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
   ],
   navSecondary: [
     {
@@ -196,6 +182,37 @@ export default function Sidebar1({ children }: SidebarProps) {
   const handleLogout = async () => {
     await logout(navigate);
   };
+  const [userData, setUserData] = useState(
+    {
+      codigoUsuario: "",
+      email: "",
+      displayName: "",
+    }
+  );
+
+  React.useEffect(() => {
+    const getUser = async () => {
+      try{
+        const user = await readUser(session.uid);
+        setUserData(
+          {
+            codigoUsuario: user.codigoUsuario,
+            email: user.email,
+            displayName: user.displayname,
+          }
+        )
+        console.log(user)
+      }
+      catch(e){
+        console.error(e);
+      }
+    }
+    getUser();
+
+  } , [session]);
+
+  
+
   return (
     <SidebarProvider defaultOpen={false}>
       <Sidebar variant="inset" collapsible="offcanvas"  >
@@ -292,15 +309,15 @@ export default function Sidebar1({ children }: SidebarProps) {
                         alt={data.user.name}
                       />
                       <AvatarFallback className="rounded-lg">
-                        {session.displayName.charAt(0) + session.displayName.charAt(1)}
+                        {String(userData.displayName).charAt(0).toLocaleUpperCase() + String(userData.displayName).charAt(1)}
                       </AvatarFallback>
                     </Avatar>
                     <div className="grid flex-1 text-left text-sm leading-tight">
                       <span className="truncate font-semibold">
-                        {session.displayName}
+                        {userData.displayName}
                       </span>
                       <span className="truncate text-xs">
-                        {session.email}
+                        {userData.email}
                       </span>
                     </div>
                     <ChevronsUpDown className="ml-auto size-4" />
@@ -317,18 +334,18 @@ export default function Sidebar1({ children }: SidebarProps) {
                       <Avatar className="h-8 w-8 rounded-lg">
                         <AvatarImage
                           src={data.user.avatar}
-                          alt={session.displayName}
+                          alt={String(userData.displayName)}
                         />
                         <AvatarFallback className="rounded-lg">
-                          {session.displayName.charAt(0) + session.displayName.charAt(1)}
+                          {String(userData.displayName).charAt(0) + String(userData.displayName).charAt(1)}
                         </AvatarFallback>
                       </Avatar>
                       <div className="grid flex-1 text-left text-sm leading-tight">
                         <span className="truncate font-semibold">
-                          {session.displayName}
+                          {String(userData.displayName)}
                         </span>
                         <span className="truncate text-xs">
-                          {session.email}
+                          {userData.email}
                         </span>
                       </div>
                     </div>

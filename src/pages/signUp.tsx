@@ -93,7 +93,7 @@ export const SignUp = () => {
                     href="/"
                     className="text-sm text-gray-400 hover:text-white transition-colors "
                 >
-                    Sign In
+                    Ingresar
                 </a>
             </div>
 
@@ -133,7 +133,7 @@ export const SignUp = () => {
                     <div className="max-w-sm w-full space-y-6">
                         <div className="space-y-2 text-center">
                             <h1 className="text-2xl font-semibold tracking-tight">
-                                Sign Up
+                                Registrar
                             </h1>
                             <p className="text-sm text-gray-400">
                                 Ingresa tu correo electronico y crea una contraseña para crear una cuenta

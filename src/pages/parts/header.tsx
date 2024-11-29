@@ -20,19 +20,28 @@ import {
 import { LogOut, User } from 'lucide-react'
 import { useSessionStore } from '@/store/sessionStore'
 import { useNavigate } from 'react-router-dom'
+import { readUser } from "@/firebase/userController"
 
 
 export default function Header() {
   const { session, logout } = useSessionStore();
   const navigate = useNavigate();
-  const [email, setEmail] = React.useState(session?.email);
-  const [displayName, setDisplayName] = React.useState(session?.displayName);
-  const [avatarSrc, setAvatarSrc] = React.useState(session?.photoURL);
-
+  const [email, setEmail] = React.useState("");
+  const [displayName, setDisplayName] = React.useState("");
+  const [avatarSrc, setAvatarSrc] = React.useState("");
+ 
   React.useEffect(() => {
-    setEmail(session?.email);
-    setDisplayName(session?.displayName);
-    setAvatarSrc(session?.photoURL);
+    const getUser = async () => {
+      try{
+        const user = await readUser(session.uid);
+        setEmail(user.email);
+        setDisplayName(user.displayname);
+      }
+      catch(e){
+        console.error(e);
+      }
+    }
+    getUser();
   } , [session]);
 
   const handleLogout = async () => {
@@ -67,7 +76,7 @@ export default function Header() {
             <Avatar className="h-8 w-8">
               <AvatarImage src={avatarSrc} alt={displayName} />
               <AvatarFallback>
-                <span>{displayName ? displayName[0] : ''}</span>
+                <span>{displayName ? displayName[0].toUpperCase() : ''}</span>
               </AvatarFallback>
             </Avatar>
           </Button>

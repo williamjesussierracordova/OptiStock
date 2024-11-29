@@ -15,6 +15,7 @@ import { EliminarProducto } from "./pages/products/eliminarProducts"
 import { RegisterSale } from "./pages/sales/registerSale"
 import { ListSale } from "./pages/sales/listSale"
 import { DeleteSale } from "./pages/sales/deleteSale"
+import { Documentacion_view } from "./pages/documentacion"
 function App() {
   const { initialized } = useSessionStore();
   // if (!initialized) {
@@ -77,6 +78,11 @@ function App() {
         <Route path="/eliminarVenta" element={
           <ProtectedRoute>
           <DeleteSale />
+          </ProtectedRoute>
+        }/>
+        <Route path="/documentacion" element={
+          <ProtectedRoute>
+          <Documentacion_view />
           </ProtectedRoute>
         }/>
         <Route path="*" element={<Navigate to="/" replace />} />

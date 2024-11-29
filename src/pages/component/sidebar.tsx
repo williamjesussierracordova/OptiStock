@@ -120,24 +120,12 @@ const data = {
     },
     {
       title: "Documentation",
-      url: "#",
+      url: "/documentacion",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          title: "Documentacion",
+          url: "/documentacion",
         },
       ],
     },

@@ -17,7 +17,11 @@ interface EOQDashboardProps {
 }
 
 export function EOQDashboard({ data }: EOQDashboardProps) {
+  if (!data) {
+    return <div>Cargando...</div>
+  }
   return (
+    // TODO: ¿Qué significa todo esto para el dueño de la bodega?
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-2xl font-bold text-gray-900 mb-8">EOQ Dashboard</h1>

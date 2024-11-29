@@ -1,26 +1,28 @@
-import { useState } from "react";
+import { FaExclamationTriangle as ExclamationTriangleIcon, FaInfoCircle } from "react-icons/fa";
+import { validateEmail, validatePassword } from "../utils/validator";
+import { AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { useSessionStore } from "@/store/sessionStore";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useEffect } from "react";
-import { validateEmail, validatePassword } from "../utils/validator"
-import { useSessionStore } from "@/store/sessionStore"
-import { IoMdClose } from "react-icons/io"
-import { AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { FaExclamationTriangle as ExclamationTriangleIcon } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Input } from "@/components/ui/input";
+import { IoMdClose } from "react-icons/io"
 
 export const SignUp = () => {
     const navigate = useNavigate();
     const [isFormValid, setIsFormValid] = useState(false)
     const { register, loading, error, clearError } = useSessionStore();
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    })
+    const [showPasswordInfo, setShowPasswordInfo] = useState(false);
+    const [isPasswordTouched, setIsPasswordTouched] = useState(false);
     const [errors, setErrors] = useState({
         email: "",
         password: "",
     });
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+    })
+    const isPasswordValid = !errors.password && formData.password;
 
     useEffect(() => {
         // Verificar si todos los campos son válidos
@@ -150,14 +152,35 @@ export const SignUp = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                 />
-                                <Input
+                                <div className="relative">
+                                    <Input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Contraseña"
+                                        className={`bg-transparent border-gray-800 focus:border-gray-600 ${isPasswordTouched && !isPasswordValid ? 'border-red-500' : ''}`}
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        onFocus={() => setIsPasswordTouched(true)}
+                                    />
+                                    <FaInfoCircle
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                                        onMouseEnter={() => setShowPasswordInfo(true)}
+                                        onMouseLeave={() => setShowPasswordInfo(false)}
+                                    />
+                                    {showPasswordInfo && (
+                                        <div className="absolute right-0 w-48 bg-gray-700 text-white p-2 rounded shadow-lg z-10">
+                                            <p>Al menos una mayúscula, una minúscula, un número, un caracter especial, sin espacios.</p>
+                                        </div>
+                                    )}
+                                </div>
+                                {/* <Input
                                     type="password"
                                     name="password"
                                     placeholder="Contraseña"
                                     className="bg-transparent border-gray-800 focus:border-gray-600"
                                     value={formData.password}
                                     onChange={handleChange}
-                                />
+                                /> */}
                             </div>
                             <Button className="w-full bg-white text-black hover:bg-gray-200" disabled={!isFormValid} onClick={handleSubmit} >
                                 {loading ? 'Registrando...' : 'Registrarse'}

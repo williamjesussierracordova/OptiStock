@@ -249,6 +249,7 @@ export const Dashboard: React.FC = () => {
     { day: "hoy", total: salesDataByDate.today.totalRevenue },
   ];
   return (
+    // TODO: Traducir TODO al español
     <div className="flex min-h-screen flex-col bg-background">
       <div className="flex-1 space-y-4 p-2 lg:px-8 md:px-4">
         <div className="flex items-center justify-between space-y-2">

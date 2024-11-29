@@ -117,30 +117,14 @@ const data = {
           url: "/listaVentas",
         }
       ],
-    },
-    {
-      title: "Documentation",
-      url: "/documentacion",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Documentacion",
-          url: "/documentacion",
-        },
-      ],
-    },
+    }
   ],
   navSecondary: [
     {
       title: "Documentación",
-      url: "#",
+      url: "/documentacion",
       icon: BookOpenText,
-    },
-    {
-      title: "Contacto",
-      url: "#",
-      icon: BookUser,
-    },
+    }
   ],
   projects: [
     {

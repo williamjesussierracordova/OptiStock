@@ -150,13 +150,13 @@ export async function updateStockAdd(companie,codeProduct,quantity){
 
 // await updateStock('1','5f26f3da-8234-490d-b552-27629447c69e',10);
 
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product1', 100, 50, 500, 2, 2, 10, 300);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product2', 80, 40, 600, 1, 1, 8, 400);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product3', 150, 70, 300, 3, 3, 12, 250);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product4', 120, 60, 400, 2, 2.5, 9, 350);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product5', 200, 100, 700, 4, 4, 15, 500);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product6', 50, 25, 900, 1, 1.5, 5, 600);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product7', 300, 150, 200, 5, 5, 20, 150);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product8', 75, 35, 800, 1, 1, 6, 450);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product9', 90, 45, 600, 2, 2, 7, 400);
-// await writeProduct('jEcZIHprxEfzy3yMa9sAwgpkjlY2', 'Product10', 250, 120, 300, 3, 3.5, 14, 200);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product1', 100, 50, 500, 2, 2, 10, 300);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product2', 80, 40, 600, 1, 1, 8, 400);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product3', 150, 70, 300, 3, 3, 12, 250);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product4', 120, 60, 400, 2, 2.5, 9, 350);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product5', 200, 100, 700, 4, 4, 15, 500);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product6', 50, 25, 900, 1, 1.5, 5, 600);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product7', 300, 150, 200, 5, 5, 20, 150);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product8', 75, 35, 800, 1, 1, 6, 450);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product9', 90, 45, 600, 2, 2, 7, 400);
+// await writeProduct("qHRym8b1DCNu6ZFgIppqY4GalJl2", 'Product10', 250, 120, 300, 3, 3.5, 14, 200);

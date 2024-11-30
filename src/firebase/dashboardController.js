@@ -150,7 +150,7 @@ export async function getSalesDataByDate(codigoUsuario) {
 //       }
 // }
 
-export async function getInventoryData(codigoUsuario, lowStockThreshold = 10) {
+export async function getInventoryData(codigoUsuario, lowStockThreshold = 400) {
     try {
       const productsRef = ref(db, `users/${codigoUsuario}/products`);
       const snapshot = await get(productsRef);
